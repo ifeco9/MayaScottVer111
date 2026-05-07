@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 99%;
+    --foreground: 220 45% 11%;
+    --card: 210 50% 99%;
+    --card-foreground: 220 45% 11%;
+    --popover: 210 50% 99%;
+    --popover-foreground: 220 45% 11%;
+    --primary: 190 45% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 55% 95%;
+    --secondary-foreground: 220 45% 11%;
+    --muted: 210 30% 95%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 195 65% 68%;
+    --accent-foreground: 220 45% 11%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 30% 90%;
+    --input: 210 30% 90%;
+    --ring: 190 45% 42%;
+    --radius: 0.75rem;
+    --chart-1: 190 45% 42%;
+    --chart-2: 340 55% 75%;
+    --chart-3: 195 65% 68%;
+    --chart-4: 220 20% 55%;
+    --chart-5: 15 60% 55%;
+    --sidebar-background: 210 50% 99%;
+    --sidebar-foreground: 220 45% 11%;
+    --sidebar-primary: 190 45% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 95%;
+    --sidebar-accent-foreground: 220 45% 11%;
+    --sidebar-border: 210 30% 90%;
+    --sidebar-ring: 190 45% 42%;
+  }
+
+  .dark {
+    --background: 220 45% 6%;
+    --foreground: 210 50% 95%;
+    --card: 220 45% 8%;
+    --card-foreground: 210 50% 95%;
+    --popover: 220 45% 8%;
+    --popover-foreground: 210 50% 95%;
+    --primary: 190 45% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 30% 16%;
+    --secondary-foreground: 210 50% 95%;
+    --muted: 220 30% 16%;
+    --muted-foreground: 210 20% 60%;
+    --accent: 220 30% 16%;
+    --accent-foreground: 210 50% 95%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 190 45% 48%;
+    --chart-1: 190 45% 48%;
+    --chart-2: 340 55% 70%;
+    --chart-3: 195 65% 60%;
+    --chart-4: 200 30% 55%;
+    --chart-5: 15 60% 55%;
+    --sidebar-background: 220 45% 6%;
+    --sidebar-foreground: 210 50% 95%;
+    --sidebar-primary: 190 45% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 30% 16%;
+    --sidebar-accent-foreground: 210 50% 95%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 190 45% 48%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-accent {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gradient-ice {
+    background: linear-gradient(135deg, hsl(210 50% 99%) 0%, hsl(190 50% 96%) 50%, hsl(340 40% 96%) 100%);
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(to bottom, transparent 0%, hsl(210 50% 99% / 0.95) 100%);
+  }
+
+  .gradient-frost {
+    background: linear-gradient(180deg, hsl(195 65% 68% / 0.15) 0%, transparent 60%);
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 2px 20px rgba(15, 23, 41, 0.15);
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 40px rgba(126, 200, 227, 0.4), 0 2px 10px rgba(15, 23, 41, 0.1);
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(16px);
+    background: hsl(210 50% 99% / 0.75);
+    border: 1px solid hsl(210 30% 90% / 0.5);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* Embla carousel styles */
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection */
+::selection {
+  background: hsl(190 45% 42% / 0.25);
+  color: inherit;
+}
